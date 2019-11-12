@@ -77,8 +77,7 @@ ul{
     text-decoration: line-through;
     cursor: pointer;
 }
-
-@media screen and (min-width: 900px) {
+ @media screen and (min-width: 900px) {
   .user-input {
     text-align: center;
     width: 60%;
