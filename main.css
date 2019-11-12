@@ -1,0 +1,96 @@
+base
+
+
+
+body {
+    background-color: blue;
+}
+
+
+#container {
+    background: navy;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 0 50px 0;
+
+}
+
+
+
+
+#logo{
+    background: url('ninja.png')  no-repeat; 
+    height: 37px;
+    margin: auto    ;
+}
+
+.user-input {
+    text-align: center;
+    width: 80%;
+    padding: 10px 15px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #d09fa4;
+    border: 0;
+    outline: none;
+    background-color: lavenderblush;
+    border-top: 1px solid white;
+    transition: all .2 ease-in;
+}
+
+.user-input:focus{
+    border-bottom: 2px solid #515151;
+}
+
+.user-button {
+    text-align: center;
+    padding: 3px 18px;
+    color: #ef211f;
+    font-size: 18px;
+    outline: none;
+    font-weight: 300;
+    background-color: black;
+    margin-left: -100px;
+}
+ 
+.user-button:hover {
+    border: 2px solid #515151;
+}
+
+ul{
+    width: 55%;
+    margin: 50px auto;
+    padding: 0;
+    list-style: none;
+}
+
+.ninja-item {
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 25px;
+    color: #dee5e8;
+    border-bottom: 1px solid;
+    margin: 30px auto;
+}
+
+.ninja-item:hover{
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 900px) {
+  .user-input {
+    text-align: center;
+    width: 60%;
+    padding: 12px 20px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #d09fa4;
+    border: 0;
+    outline: none;
+    background-color: lavenderblush;
+    border-top: 1px solid white;
+    transition: all .2 ease-in;
+}
+  }
+
