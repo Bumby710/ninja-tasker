@@ -11,6 +11,7 @@ app.set("view engine", "ejs");
 // middlewear
 app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 let list = ["Code And Watch Anime", "Slackline Tonight"];
 
@@ -27,7 +28,17 @@ app.post("/ninja", function(req, res) {
   res.render("home.ejs", { list: list });
 });
 
+app.delete("/delete/:index", function(req, res) {
+  console.log(req.params.index);
+
+  list.splice(req.params.index, 1);
+
+  res.json(list);
+});
+
 // server listening for request
 app.listen(3000, function() {
   console.log("server is lit!!");
 });
+
+// Removing to do items

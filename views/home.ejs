@@ -18,14 +18,15 @@
           placeholder="Task To Complete"
           required
         />
-        <input class="user-button" type="Submit" value="Add" />
       </form>
 
       <ul>
         <% for(let index=0; index< list.length; index++) { %>
-        <li class="ninja-item"><%= list [index] %></li>
+        <li class="ninja-item" id="<%= index %>"><%= list [index] %></li>
         <% } %>
       </ul>
     </div>
+
+    <script src="./main.js"></script>
   </body>
 </html>
