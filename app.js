@@ -2,6 +2,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const db = require("./models/");
+const routes = require("./routes");
+const passport = require("./config/passport");
+const session = require("express-session");
 
 // starting express app
 const app = express();
@@ -13,29 +16,17 @@ app.set("view engine", "ejs");
 app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-let list = ["Code And Watch Anime", "Slackline Tonight"];
-
-// ROUTES
-// get home
-app.get("/home", function(req, res) {
-  res.render("home.ejs", { list: list });
-});
-
-// POST ninja
-app.post("/ninja", function(req, res) {
-  console.log(req.body.taskItem);
-  list.push(req.body.taskItem);
-  res.render("home.ejs", { list: list });
-});
-
-app.delete("/delete/:index", function(req, res) {
-  console.log(req.params.index);
-
-  list.splice(req.params.index, 1);
-
-  res.json(list);
-});
+app.use(
+  session("express-session")({
+    secret: "Cohort Orlando",
+    resave: true,
+    saveUninitialized: true
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+//Routing Manager
+app.use(routes);
 
 db.sequelize.sync().then(function() {
   // server listening for request
